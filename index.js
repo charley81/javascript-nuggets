@@ -60,5 +60,40 @@ const categories = [...new Set(menu.map(item => item.category))]
 // =========== end unique values ==========
 
 // =========== dynamic object keys ==========
+// dot notation
+const person = {
+  name: 'john',
+}
+
+person.age = 25
+
+// square bracket notation
+const items = {
+  'featured-items': ['item 1', 'item 2'],
+}
+
+let appState = 'loading'
+appState = 'hello'
+const keyName = 'computer'
+
+const app = {
+  [appState]: true,
+}
+
+app[keyName] = 'apple'
+
+const state = {
+  loading: true,
+  name: '',
+  job: '',
+}
+
+function updateState(key, value) {
+  state[key] = value
+}
+
+updateState('name', 'jaime')
+updateState('loading', false)
+updateState('job', 'developer')
 
 // =========== end dynamic object keys ==========
