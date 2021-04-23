@@ -1,4 +1,4 @@
-// map()
+// =========== map() ==========
 const people = [
   {
     name: 'john',
@@ -24,9 +24,9 @@ const newPeople = people.map(person => {
   }
 })
 
-// End of map()
+// =========== end of map() ==========
 
-// unique vales
+// =========== unique values ==========
 const menu = [
   {
     name: 'pancakes',
@@ -53,9 +53,12 @@ const menu = [
     category: 'dinner',
   },
 ]
+// map get all instances of category
+// new Set - narrow down
+// ['all',...] - turn it bact to array
+const categories = [...new Set(menu.map(item => item.category))]
+// =========== end unique values ==========
 
-// map get all instances
-const categories = menu.map(item => {
-  return item.category
-})
-// End unique values
+// =========== dynamic object keys ==========
+
+// =========== end dynamic object keys ==========
