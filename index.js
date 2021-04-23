@@ -224,9 +224,41 @@ const {
 // console.log(first1, last, city, sister)
 
 function printPerson({ first1, last, city, siblings: { sister } }) {
-  console.log(first1, last, city, sister)
+  // console.log(first1, last, city, sister)
 }
 
 printPerson(bib)
 
 // =========== end destructuring ==========
+
+// =========== spread operator ==========
+// allows and iterable to spread/expand individually inside receiver
+// split into single items and COPY them
+
+const udemy = 'udemy'
+const letters = [...udemy]
+
+const boys = ['john', 'peter', 'bob']
+const girls = ['susan', 'anna']
+
+const bestFriend = 'arnold'
+
+const friendz = [...boys, ...girls, bestFriend]
+
+// reference
+// const newFrienz = friendz
+// newFrienz[0] = 'nancy'
+// console.log(newFrienz, friendz)
+
+// copy
+const newFrienz = [...friendz]
+newFrienz[0] = 'nancy'
+// console.log(newFrienz, friendz)
+
+// ES2018 - ES8 Objects
+const person2 = { name: 'mike', job: 'developer' }
+const newPerson = { ...person2, city: 'charlotte', name: 'jim' }
+
+console.log(newPerson)
+
+// =========== end spread operator ==========
