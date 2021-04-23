@@ -185,6 +185,7 @@ const totalSalary = staff.reduce((acc, cur) => {
 // =========== destructuring ==========
 // faster/easier way to access/unpack variables from arrays, objects
 
+// array destructuring
 const fruits = ['orange', 'banana', 'lemon']
 const friends = ['john', 'peter', 'bob', 'anna', 'kelly']
 
@@ -203,5 +204,29 @@ let second = 'john'
 // let temp = second
 // second = first
 // first = temp
+
+// object destructuring
+const bib = {
+  first1: 'bib',
+  last: 'sanders',
+  city: 'chicago',
+  siblings: {
+    sister: 'jane',
+  },
+}
+
+const {
+  first1,
+  last,
+  city,
+  siblings: { sister },
+} = bib
+// console.log(first1, last, city, sister)
+
+function printPerson({ first1, last, city, siblings: { sister } }) {
+  console.log(first1, last, city, sister)
+}
+
+printPerson(bib)
 
 // =========== end destructuring ==========
