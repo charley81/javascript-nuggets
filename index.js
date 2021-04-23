@@ -176,11 +176,32 @@ const staff = [
 ]
 
 const totalSalary = staff.reduce((acc, cur) => {
-  console.log(acc)
   acc += cur.salary
   return acc
 }, 0)
 
-// console.log(totalSalary)
-
 // =========== end reduce ==========
+
+// =========== destructuring ==========
+// faster/easier way to access/unpack variables from arrays, objects
+
+const fruits = ['orange', 'banana', 'lemon']
+const friends = ['john', 'peter', 'bob', 'anna', 'kelly']
+
+const fruit1 = fruits[0]
+const fruit2 = fruits[1]
+const fruit3 = fruits[2]
+
+const [friend1, friend2, friend3, friend4, friend5] = friends
+
+// only get certain ones just skip with a comma
+const [enemy, , bob, , kelly, susan] = friends
+// console.log(enemy, bob, kelly, susan)
+
+let first = 'bob'
+let second = 'john'
+// let temp = second
+// second = first
+// first = temp
+
+// =========== end destructuring ==========
