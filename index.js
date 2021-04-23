@@ -95,5 +95,53 @@ function updateState(key, value) {
 updateState('name', 'jaime')
 updateState('loading', false)
 updateState('job', 'developer')
+updateState('products', [])
 
 // =========== end dynamic object keys ==========
+
+// =========== filter and find ==========
+// filter - returns a new array, can manipulate the size of new array (unlike map), returns based on condition
+// find - returns a single instance (object), returns first match, if no match - undefined
+
+const people2 = [
+  {
+    name: 'bob',
+    age: 20,
+    position: 'developer',
+  },
+  {
+    name: 'peter',
+    age: 25,
+    position: 'designer',
+  },
+  {
+    name: 'susie',
+    age: 30,
+    position: 'CTO',
+  },
+  {
+    name: 'anna',
+    age: 35,
+    position: 'intern',
+  },
+]
+
+// filter
+const youngPeople = people2.filter(person => person.age < 31)
+const developers = people2.filter(person => person.position === 'developer')
+
+// no match - get back empty array
+const seniorDevs = people2.filter(person => person.position === 'senior dev')
+
+// find
+const peter = people2.find(person => person.name === 'peter')
+
+// no match
+const oldPerson = people2.find(person => person.age > 35)
+
+// multiple matches - first match
+const randomPerson = people2.find(person => person.age < 35)
+
+const anna = people2.filter(person => person.name === 'anna')
+// console.log(anna[0].position)
+// =========== end filter and find ==========
