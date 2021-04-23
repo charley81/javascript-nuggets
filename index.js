@@ -145,3 +145,42 @@ const randomPerson = people2.find(person => person.age < 35)
 const anna = people2.filter(person => person.name === 'anna')
 // console.log(anna[0].position)
 // =========== end filter and find ==========
+
+// =========== reduce ==========
+// iterates, callback function
+// reduces to a single value - number, array, object
+// 1st parameter ('acc') - total of all calculations
+// 2nd parameter ('cur') - current iteration/value
+
+const staff = [
+  {
+    name: 'bob',
+    position: 'developer',
+    salary: 100,
+  },
+  {
+    name: 'peter',
+    position: 'designer',
+    salary: 300,
+  },
+  {
+    name: 'susie',
+    position: 'CTO',
+    salary: 400,
+  },
+  {
+    name: 'anna',
+    position: 'intern',
+    salary: 10,
+  },
+]
+
+const totalSalary = staff.reduce((acc, cur) => {
+  console.log(acc)
+  acc += cur.salary
+  return acc
+}, 0)
+
+// console.log(totalSalary)
+
+// =========== end reduce ==========
