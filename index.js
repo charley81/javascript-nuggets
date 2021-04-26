@@ -259,6 +259,38 @@ newFrienz[0] = 'nancy'
 const person2 = { name: 'mike', job: 'developer' }
 const newPerson = { ...person2, city: 'charlotte', name: 'jim' }
 
-console.log(newPerson)
-
 // =========== end spread operator ==========
+
+// =========== rest operator ==========
+// gathers/collects items
+// destructuring, functions
+// placement important, careful with the same name
+// rest when declare function, spread when invoke the function
+
+// arrays
+const fruits01 = ['apple', 'orange', 'lemon', 'banana']
+const [first01, ...restOf] = fruits01
+
+// objects
+const thePerson = {
+  name: 'John',
+  lastName: 'Smith',
+  job: 'Developer',
+}
+
+const { ...rest } = thePerson
+
+// functions
+const getAverage = (name, ...scores) => {
+  console.log(name)
+  console.log(scores)
+  const average =
+    scores.reduce((total, item) => {
+      return (total += item)
+    }, 0) / scores.length
+  console.log(average)
+}
+
+const testScores = [23, 45, 67, 89]
+getAverage(thePerson.name, ...testScores)
+// =========== end rest operator ==========
