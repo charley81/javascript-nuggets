@@ -282,15 +282,87 @@ const { ...rest } = thePerson
 
 // functions
 const getAverage = (name, ...scores) => {
-  console.log(name)
-  console.log(scores)
   const average =
     scores.reduce((total, item) => {
       return (total += item)
     }, 0) / scores.length
-  console.log(average)
 }
 
 const testScores = [23, 45, 67, 89]
 getAverage(thePerson.name, ...testScores)
 // =========== end rest operator ==========
+
+// =========== reduce ==========
+// objects
+// cart example
+const cart = [
+  {
+    title: 'm-audio xyz 88key',
+    price: 899.99,
+    amount: 8,
+  },
+  {
+    title: 'fender Live Bass Guitar',
+    price: 1199.99,
+    amount: 6,
+  },
+  {
+    title: 'Technique 1200',
+    price: 499.99,
+    amount: 10,
+  },
+  {
+    title: 'KRK 10" Sub',
+    price: 299.99,
+    amount: 5,
+  },
+  {
+    title: 'Solid State Analog Desk',
+    price: 59999.99,
+    amount: 1,
+  },
+  {
+    title: 'Shure 7m7b Mic',
+    price: 399.99,
+    amount: 8,
+  },
+]
+
+let { totalItems, cartTotal } = cart.reduce(
+  (total, cartItem) => {
+    const { amount, price } = cartItem
+    // count items
+    total.totalItems += amount
+    // count sum
+    total.cartTotal += amount * price
+    return total
+  },
+  {
+    totalItems: 0,
+    cartTotal: 0,
+  }
+)
+cartTotal = parseFloat(cartTotal.toFixed(2))
+// console.log(total)
+// console.log(totalItems, cartTotal)
+
+// github repos example
+const url = 'https://api.github.com/users/john-smilga/repos?per_page=100'
+
+const fetchRecipes = async () => {
+  const response = await fetch(url)
+  const data = await response.json()
+  const newData = data.reduce((total, repo) => {
+    const { language } = repo
+    if (language) {
+      total[language] = total[language] + 1 || 1
+    }
+
+    return total
+  }, {})
+  console.log(newData)
+}
+
+fetchRecipes()
+
+// =========== end rest reduce ==========
